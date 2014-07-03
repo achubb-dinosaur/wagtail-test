@@ -588,6 +588,20 @@ FormPage.content_panels = [
     ], "Email")
 ]
 
+# News Page
+
+class NewsPage(Page):
+    body = RichTextField()
+    date = models.DateField("Post date")
+    search_name = "News Page"
+    indexed_fields = ('body', )
+
+NewsPage.content_panels = [
+    FieldPanel('title', classname="full title"),
+    FieldPanel('date'),
+    FieldPanel('body', classname="full"),
+]
+
 
 # Signal handler to load demo data from fixtures after migrations have completed
 @receiver(post_migrate)
